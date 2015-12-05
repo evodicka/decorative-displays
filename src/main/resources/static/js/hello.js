@@ -17,8 +17,27 @@ var mod = angular.module('hello', []);
             $timeout(function() {
                 $scope.getNotification();
                 $scope.intervalFunction();
-            }, 1000);
+            }, 6000);
         };
 
+        $scope.getNotification();
         $scope.intervalFunction();
+    });
+    mod.controller('images', function($scope, $http, $timeout) {
+        $scope.getImage = function() {
+
+            $http.get('/images/current/').success(function (data) {
+                $scope.not = data;
+            });
+        };
+
+        $scope.intervalFunction2 = function() {
+            $timeout(function() {
+                $scope.getImage();
+                $scope.intervalFunction2();
+            }, 6000);
+        };
+
+        $scope.getImage();
+        $scope.intervalFunction2();
     });
