@@ -1,0 +1,20 @@
+div.notification {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+    text-shadow: 0 0 5px #FFFFFF;
+}
+
+.ng-hide {
+    transition:1s linear all;
+    opacity:0;
+}
+
+.ng-hide-remove {
+    transition:1s linear all;
+    opacity:1;
+}

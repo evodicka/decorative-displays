@@ -1,11 +1,14 @@
 package de.eduardvodicka.applications.digitalframe.dao;
 
 import de.eduardvodicka.applications.digitalframe.model.ImageResource;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -35,6 +38,23 @@ public class ImagesDao {
         });
 
         return resources;
+    }
+
+    public InputStream findImage(String imageName) {
+        try {
+            return Files.newInputStream(new File(directoryPath + "/" + imageName + ".jpg").toPath());
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public void stream(String imageName, OutputStream stream) {
+        try {
+            InputStream fileStream = Files.newInputStream(new File(directoryPath + "/" + imageName).toPath());
+            IOUtils.copy(fileStream, stream);
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     private Stream<Path> getImageNamesStream() {

@@ -1,11 +1,11 @@
-var mod = angular.module('hello', []);
+var mod = angular.module('hello', ['ngAnimate']);
     mod.controller('home', function($scope, $http) {
         $http.get('/resource/').success(function(data) {
             $scope.greeting = data;
         })
     });
     mod.controller('notification', function($scope, $http, $timeout) {
-
+        $scope.visible = false;
         $scope.getNotification = function() {
 
             $http.get('/notification/current/').success(function (data) {
@@ -15,9 +15,13 @@ var mod = angular.module('hello', []);
 
         $scope.intervalFunction = function() {
             $timeout(function() {
-                $scope.getNotification();
-                $scope.intervalFunction();
-            }, 6000);
+                $scope.visible = false;
+                setTimeout(function() {
+                    $scope.getNotification();
+                    $scope.intervalFunction();
+                    $scope.visible = true;
+                }, 2000);
+            }, 10000);
         };
 
         $scope.getNotification();
@@ -35,7 +39,7 @@ var mod = angular.module('hello', []);
             $timeout(function() {
                 $scope.getImage();
                 $scope.intervalFunction2();
-            }, 6000);
+            }, 60000);
         };
 
         $scope.getImage();

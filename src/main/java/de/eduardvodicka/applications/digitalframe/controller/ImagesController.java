@@ -3,10 +3,12 @@ package de.eduardvodicka.applications.digitalframe.controller;
 import de.eduardvodicka.applications.digitalframe.dao.ImagesDao;
 import de.eduardvodicka.applications.digitalframe.model.ImageResource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.InputStream;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -28,5 +30,16 @@ public class ImagesController {
         int id = minute / duration;
 
         return resources.get(id);
+    }
+
+    @RequestMapping(value = "/images/{id}/{name}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<InputStreamResource> donwloadImage(@PathVariable("name") String imageName, @PathVariable("id") int id) {
+        InputStream stream = imagesDao.findImage(imageName);
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(new InputStreamResource(stream));
     }
 }
