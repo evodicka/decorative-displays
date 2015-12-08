@@ -3,10 +3,11 @@ div.notification {
     bottom: 20px;
     width: 100%;
     margin: auto;
+    color: white;
     text-align: center;
     font-weight: bold;
     font-size: xx-large;
-    text-shadow: 0 0 5px #FFFFFF;
+    text-shadow: 0 0 5px #000000;
 }
 
 .ng-hide {
@@ -17,4 +18,20 @@ div.notification {
 .ng-hide-remove {
     transition:1s linear all;
     opacity:1;
+}
+
+.time, .date {
+    position: fixed;
+    right: 20px;
+    color: white;
+}
+
+.time {
+    top: 20px;
+    font-size: 62pt;
+}
+
+.date {
+    top: 10px;
+    font-size: x-large;
 }

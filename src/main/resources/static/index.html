@@ -21,18 +21,9 @@
 
 <body ng-app="hello" ng-controller="images" ng-style="{ 'background-image': 'url(/images/' + not.id + '/' + not.name + ')', 'background-repeat': 'no-repeat'}">
     <div class="container">
-        <h1>Greetings</h1>
-        <div ng-controller="home" ng-cloak class="ng-cloak">
-            <p>The ID is {{greeting.id}}</p>
-            <p>The content is {{greeting.content}}</p>
-        </div>
-        <div ng-controller="notification" ng-cloak class="ng-cloak">
-            <p>Notification id is {{notification.id}}</p>
-            <p>Notification text is {{notification.text}}</p>
-        </div>
-        <div ng-cloak class="ng-cloak">
-            <p>TEST: Image id is {{not.id}}</p>
-            <p>Image name is {{not.name}}</p>
+        <div ng-controller="clock" ng-cloak>
+            <p class="date">{{CurrentDate | date:'dd.MM.yyyy'}}</p>
+            <p class="time">{{CurrentDate | date:'HH:mm'}}</p>
         </div>
     </div>
     <div ng-controller="notification" ng-show="visible" ng-cloak class="notification">
@@ -41,6 +32,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
+    <script src="i18n/angular-locale_de-de.js"></script>
     <script src="js/hello.js"></script>
     </body>
 </html>

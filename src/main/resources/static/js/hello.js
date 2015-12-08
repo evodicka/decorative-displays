@@ -1,9 +1,4 @@
 var mod = angular.module('hello', ['ngAnimate']);
-    mod.controller('home', function($scope, $http) {
-        $http.get('/resource/').success(function(data) {
-            $scope.greeting = data;
-        })
-    });
     mod.controller('notification', function($scope, $http, $timeout) {
         $scope.visible = false;
         $scope.getNotification = function() {
@@ -26,6 +21,17 @@ var mod = angular.module('hello', ['ngAnimate']);
 
         $scope.getNotification();
         $scope.intervalFunction();
+    });
+    mod.controller('clock', function($scope, $timeout) {
+        $scope.setClock = function() {
+            $timeout(function() {
+                $scope.CurrentDate = new Date();
+                $scope.setClock();
+            }, 30000);
+        };
+
+        $scope.setClock();
+        $scope.CurrentDate = new Date();
     });
     mod.controller('images', function($scope, $http, $timeout) {
         $scope.getImage = function() {
