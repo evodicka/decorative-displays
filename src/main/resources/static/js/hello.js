@@ -27,7 +27,7 @@ var mod = angular.module('hello', ['ngAnimate']);
             $timeout(function() {
                 $scope.CurrentDate = new Date();
                 $scope.setClock();
-            }, 30000);
+            }, 10000);
         };
 
         $scope.setClock();
