@@ -1,6 +1,6 @@
 div.notification {
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     width: 100%;
     margin: auto;
     color: white;
@@ -22,16 +22,16 @@ div.notification {
 
 .time, .date {
     position: fixed;
-    right: 20px;
+    right: 40px;
     color: white;
 }
 
 .time {
-    top: 20px;
+    top: 40px;
     font-size: 62pt;
 }
 
 .date {
-    top: 10px;
+    top: 30px;
     font-size: x-large;
 }
