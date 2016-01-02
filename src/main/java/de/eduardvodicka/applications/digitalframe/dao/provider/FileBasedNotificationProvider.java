@@ -30,7 +30,6 @@ public abstract class FileBasedNotificationProvider implements NotificationDao {
 
     @Override
     public List<Notification> findAll() {
-
         return new ArrayList<>(map(loadLines()));
     }
 
@@ -42,7 +41,7 @@ public abstract class FileBasedNotificationProvider implements NotificationDao {
     @Override
     public Notification find(int id) {
         List<String> strings = loadLines();
-        if(id < 0 && id >= strings.size()) {
+        if(id < 0 || id >= strings.size()) {
             throw new IllegalArgumentException("ID " + id + " does not exist");
         }
         return map(strings.get(id), id);
