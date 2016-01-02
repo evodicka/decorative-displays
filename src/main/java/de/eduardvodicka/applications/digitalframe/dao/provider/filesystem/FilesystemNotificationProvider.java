@@ -1,6 +1,6 @@
 package de.eduardvodicka.applications.digitalframe.dao.provider.filesystem;
 
-import de.eduardvodicka.applications.digitalframe.dao.provider.NotificationProvider;
+import de.eduardvodicka.applications.digitalframe.dao.provider.FileBasedNotificationProvider;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by evodicka on 02.01.2016.
  */
-public class FilesystemNotificationProvider implements NotificationProvider {
+public class FilesystemNotificationProvider extends FileBasedNotificationProvider {
 
     private String filePath;
 
@@ -19,7 +19,7 @@ public class FilesystemNotificationProvider implements NotificationProvider {
     }
 
     @Override
-    public List<String> loadLines() {
+    protected List<String> loadLines() {
         try {
             return Files.readAllLines(new File(filePath).toPath());
         } catch (IOException e) {

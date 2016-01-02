@@ -1,6 +1,6 @@
 package de.eduardvodicka.applications.digitalframe.dao.provider.classpath;
 
-import de.eduardvodicka.applications.digitalframe.dao.provider.NotificationProvider;
+import de.eduardvodicka.applications.digitalframe.dao.provider.FileBasedNotificationProvider;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Created by evodicka on 02.01.2016.
  */
-public class ClasspathNotificationProvider implements NotificationProvider {
+public class ClasspathNotificationProvider extends FileBasedNotificationProvider {
 
     private String filePath;
 
