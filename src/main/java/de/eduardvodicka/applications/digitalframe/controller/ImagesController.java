@@ -29,11 +29,14 @@ public class ImagesController {
     public ImageResource getCurrentImageResource() {
         List<ImageResource> resources = imagesDao.findAll();
 
-        int duration = 60 / resources.size();
-        int minute = LocalTime.now().getMinute();
-        int id = minute / duration;
+        if(resources.size() > 0) {
+            int duration = 60 / resources.size();
+            int minute = LocalTime.now().getMinute();
+            int id = minute / duration;
 
-        return resources.get(id);
+            return resources.get(id);
+        }
+        return new ImageResource();
     }
 
     @RequestMapping(value = "/images/{id}/{name}", method = RequestMethod.GET)

@@ -29,6 +29,17 @@ public class ImagesDao {
     }
 
     public List<ImageResource> findAll() {
+        if(directoryPath.startsWith("classpath:")) {
+            return findInClasspath();
+        }
+        return findInFileSystem();
+    }
+
+    private List<ImageResource> findInClasspath() {
+        return new ArrayList<>();
+    }
+
+    private List<ImageResource> findInFileSystem() {
         List<ImageResource> resources = new ArrayList<>();
         getImageNamesStream().sorted().forEach(path -> {
             ImageResource resource = new ImageResource();
