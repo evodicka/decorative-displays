@@ -41,7 +41,7 @@ public class ImagesController {
 
     @RequestMapping(value = "/images/{id}/{name}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<InputStreamResource> donwloadImage(@PathVariable("name") String imageName, @PathVariable("id") int id) {
+    public ResponseEntity<InputStreamResource> downloadImage(@PathVariable("name") String imageName, @PathVariable("id") int id) {
         InputStream stream = imagesDao.findImage(imageName);
 
         return ResponseEntity
