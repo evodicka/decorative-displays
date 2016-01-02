@@ -4,7 +4,6 @@ import de.eduardvodicka.applications.digitalframe.dao.provider.FileBasedNotifica
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -22,7 +21,7 @@ public class ClasspathNotificationProvider extends FileBasedNotificationProvider
     }
 
     @Override
-    public List<String> loadLines() {
+    protected List<String> loadLines() {
         try (BufferedReader buffered = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath), StandardCharsets.UTF_8))) {
             return buffered.lines().collect(Collectors.toList());
         } catch (IOException e) {
