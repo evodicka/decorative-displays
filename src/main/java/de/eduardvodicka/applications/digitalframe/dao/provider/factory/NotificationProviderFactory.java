@@ -1,5 +1,6 @@
-package de.eduardvodicka.applications.digitalframe.dao.provider;
+package de.eduardvodicka.applications.digitalframe.dao.provider.factory;
 
+import de.eduardvodicka.applications.digitalframe.dao.provider.NotificationProvider;
 import de.eduardvodicka.applications.digitalframe.dao.provider.classpath.ClasspathNotificationProvider;
 import de.eduardvodicka.applications.digitalframe.dao.provider.filesystem.FilesystemNotificationProvider;
 import org.springframework.beans.factory.annotation.Value;
