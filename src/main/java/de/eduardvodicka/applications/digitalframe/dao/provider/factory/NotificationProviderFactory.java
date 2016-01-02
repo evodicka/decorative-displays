@@ -22,7 +22,7 @@ public class NotificationProviderFactory extends AbstractFactoryBean<Notificatio
     }
 
     @Override
-    protected NotificationDao createInstance() throws Exception {
+    protected NotificationDao createInstance() {
         if(filePath.startsWith("classpath:")) {
             return new ClasspathNotificationProvider(filePath.split(":")[1]);
         }

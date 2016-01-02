@@ -45,8 +45,7 @@ public abstract class FileBasedNotificationProvider implements NotificationDao {
         if(id < 0 && id >= strings.size()) {
             throw new IllegalArgumentException("ID " + id + " does not exist");
         }
-        Notification notification = map(strings.get(id), id);
-        return notification;
+        return map(strings.get(id), id);
     }
 
     protected abstract List<String> loadLines();

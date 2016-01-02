@@ -23,9 +23,8 @@ public class ClasspathNotificationProvider extends FileBasedNotificationProvider
 
     @Override
     public List<String> loadLines() {
-        try (InputStream resource = getClass().getResourceAsStream(filePath)) {
-            return new BufferedReader(new InputStreamReader(resource,
-                    StandardCharsets.UTF_8)).lines().collect(Collectors.toList());
+        try (BufferedReader buffered = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath), StandardCharsets.UTF_8))) {
+            return buffered.lines().collect(Collectors.toList());
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

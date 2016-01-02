@@ -3,10 +3,8 @@ package de.eduardvodicka.applications.digitalframe.dao.provider.factory;
 import de.eduardvodicka.applications.digitalframe.dao.ImagesDao;
 import de.eduardvodicka.applications.digitalframe.dao.provider.classpath.ClasspathImageProvider;
 import de.eduardvodicka.applications.digitalframe.dao.provider.filesystem.FilesystemImageProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,7 +22,7 @@ public class ImageProviderFactory extends AbstractFactoryBean<ImagesDao> {
     }
 
     @Override
-    protected ImagesDao createInstance() throws Exception {
+    protected ImagesDao createInstance() {
         if(directoryPath.startsWith("classpath:")) {
             return new ClasspathImageProvider(directoryPath);
         }
