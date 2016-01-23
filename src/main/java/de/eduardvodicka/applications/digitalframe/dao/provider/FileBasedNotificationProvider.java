@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by evodicka on 02.01.2016.
+ * Base class for {@link Notification} providers that are based on reading notifications from a line based text file.
+ *
+ * @author Eduard Vodicka
  */
 public abstract class FileBasedNotificationProvider implements NotificationDao {
 
@@ -47,6 +49,10 @@ public abstract class FileBasedNotificationProvider implements NotificationDao {
         return map(strings.get(id), id);
     }
 
+    /**
+     * Loads the actual lines from a text file
+     * @return all lines
+     */
     protected abstract List<String> loadLines();
 
 }

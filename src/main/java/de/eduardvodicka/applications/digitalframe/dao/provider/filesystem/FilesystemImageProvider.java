@@ -15,7 +15,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * Created by evodicka on 02.01.2016.
+ * Image provider that reads from a directory on the filesystem
+ *
+ * @author Eduard Vodicka
  */
 public class FilesystemImageProvider implements ImagesDao {
 

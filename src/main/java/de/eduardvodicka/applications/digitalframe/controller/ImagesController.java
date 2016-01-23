@@ -3,6 +3,7 @@ package de.eduardvodicka.applications.digitalframe.controller;
 import de.eduardvodicka.applications.digitalframe.dao.ImagesDao;
 import de.eduardvodicka.applications.digitalframe.model.ImageResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,9 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * Created by evodicka on 05.12.2015.
+ * Spring MVC controller that handles images loading. Registers its methods to the path /images/*
+ *
+ * @author Eduard Vodicka
  */
 @RestController
 public class ImagesController {
@@ -25,8 +28,16 @@ public class ImagesController {
     private ImagesDao imagesDao;
 
     @Autowired
+    @Qualifier("timeBasedSelector")
     private ResourceSelector resourceSelector;
 
+    /**
+     * Loads the current image resource metadata based on the algorithm provided by the {@link ResourceSelector}, which
+     * is time based by default
+     *
+     * @see TimeBasedResourceSelector
+     * @return the image resource
+     */
     @RequestMapping(value = "/images/current", method = RequestMethod.GET)
     public ImageResource getCurrentImageResource() {
         List<ImageResource> resources = imagesDao.findAll();
@@ -37,6 +48,12 @@ public class ImagesController {
         return new ImageResource();
     }
 
+    /**
+     * Offers the contents of an image identified by its name and id for download
+     * @param imageName name of the image
+     * @param id id of the image
+     * @return download stream
+     */
     @RequestMapping(value = "/images/{id}/{name}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<InputStreamResource> downloadImage(@PathVariable("name") String imageName, @PathVariable("id") int id) {

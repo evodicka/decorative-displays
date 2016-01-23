@@ -8,7 +8,10 @@ import org.springframework.beans.factory.config.AbstractFactoryBean;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by evodicka on 02.01.2016.
+ * Spring factory for {@link NotificationDao NotificationDaos}. Creates the correct dao based on the prefix of the
+ * property "text.filepath". Can be either "classpath:" or noting (normal file system)
+ *
+ * @author Eduard Vodicka
  */
 @Component
 public class NotificationProviderFactory extends AbstractFactoryBean<NotificationDao> {

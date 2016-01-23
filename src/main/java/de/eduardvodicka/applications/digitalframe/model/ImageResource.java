@@ -1,7 +1,9 @@
 package de.eduardvodicka.applications.digitalframe.model;
 
 /**
- * Created by evodicka on 05.12.2015.
+ * Representation of an Images that will serve as background image of the UI screen
+ *
+ * @author Eduard Vodicka
  */
 public class ImageResource {
 

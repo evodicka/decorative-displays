@@ -11,6 +11,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 /**
@@ -22,6 +24,9 @@ public class NotificationControllerTest {
     @Mock
     private NotificationDao notificationDao;
 
+    @Mock
+    private ResourceSelector resourceSelector;
+
     @InjectMocks
     private NotificationController underTest = new NotificationController();
 
@@ -29,11 +34,13 @@ public class NotificationControllerTest {
     public void current() {
         Notification not = new Notification();
 
+        when(resourceSelector.selectResourceId(anyInt())).thenReturn(2);
         when(notificationDao.getCount()).thenReturn(5);
         when(notificationDao.find(anyInt())).thenReturn(not);
 
         Notification result = underTest.getCurrentNotification();
 
+        verify(notificationDao).find(2);
         assertThat(result, CoreMatchers.is(not));
     }
 

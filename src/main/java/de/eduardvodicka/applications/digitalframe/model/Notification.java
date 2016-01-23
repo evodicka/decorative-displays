@@ -1,7 +1,9 @@
 package de.eduardvodicka.applications.digitalframe.model;
 
 /**
- * Created by evodicka on 14.11.2015.
+ * Represntation of a Notification that should be displayed on the UI Screen
+ *
+ * @author Eduard Vodicka
  */
 public class Notification {
 

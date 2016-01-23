@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by evodicka on 02.01.2016.
+ * Notification provider that reads from a file on the classpath
+ *
+ * @author Eduard Vodicka
  */
 public class ClasspathNotificationProvider extends FileBasedNotificationProvider {
 

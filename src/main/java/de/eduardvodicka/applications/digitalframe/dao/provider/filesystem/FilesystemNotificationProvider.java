@@ -8,7 +8,9 @@ import java.nio.file.Files;
 import java.util.List;
 
 /**
- * Created by evodicka on 02.01.2016.
+ * Notification provider that reads from a file on the file system
+ *
+ * @author Eduard Vodicka
  */
 public class FilesystemNotificationProvider extends FileBasedNotificationProvider {
 
