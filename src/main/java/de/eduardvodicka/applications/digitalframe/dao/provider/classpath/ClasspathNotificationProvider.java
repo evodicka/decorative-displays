@@ -34,6 +34,10 @@ public class ClasspathNotificationProvider extends FileBasedNotificationProvider
 
     private String filePath;
 
+    /**
+     * Instatiates the provider with a given file path
+     * @param filePath path to the notification file
+     */
     public ClasspathNotificationProvider(String filePath) {
         this.filePath = filePath;
     }
