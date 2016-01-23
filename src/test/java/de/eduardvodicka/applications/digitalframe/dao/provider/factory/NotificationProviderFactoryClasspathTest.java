@@ -1,8 +1,6 @@
 package de.eduardvodicka.applications.digitalframe.dao.provider.factory;
 
-import de.eduardvodicka.applications.digitalframe.dao.ImagesDao;
 import de.eduardvodicka.applications.digitalframe.dao.NotificationDao;
-import de.eduardvodicka.applications.digitalframe.dao.provider.classpath.ClasspathImageProvider;
 import de.eduardvodicka.applications.digitalframe.dao.provider.classpath.ClasspathNotificationProvider;
 import de.eduardvodicka.applications.digitalframe.test.ClasspathConfiguration;
 import org.junit.Test;

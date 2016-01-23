@@ -2,12 +2,9 @@ package de.eduardvodicka.applications.digitalframe.dao;
 
 import de.eduardvodicka.applications.digitalframe.dao.provider.FileBasedNotificationProvider;
 import de.eduardvodicka.applications.digitalframe.model.Notification;
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;

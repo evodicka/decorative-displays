@@ -1,10 +1,7 @@
 package de.eduardvodicka.applications.digitalframe.dao.provider.factory;
 
-import de.eduardvodicka.applications.digitalframe.dao.ImagesDao;
 import de.eduardvodicka.applications.digitalframe.dao.NotificationDao;
-import de.eduardvodicka.applications.digitalframe.dao.provider.filesystem.FilesystemImageProvider;
 import de.eduardvodicka.applications.digitalframe.dao.provider.filesystem.FilesystemNotificationProvider;
-import de.eduardvodicka.applications.digitalframe.model.Notification;
 import de.eduardvodicka.applications.digitalframe.test.FileSystemConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
