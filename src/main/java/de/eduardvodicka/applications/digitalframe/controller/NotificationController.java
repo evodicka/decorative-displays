@@ -19,7 +19,11 @@ public class NotificationController {
     @RequestMapping(value = "/notification/current", method = RequestMethod.GET)
     public Notification getCurrentNotification() {
         int count = notificationDao.getCount();
-        int id = (int) ((Math.random() * 100)) % count;
-        return notificationDao.find(id);
+
+        if(count > 0) {
+            int id = (int) ((Math.random() * 100)) % count;
+            return notificationDao.find(id);
+        }
+        return new Notification();
     }
 }

@@ -45,7 +45,7 @@ public class FilesystemImageProvider implements ImagesDao {
     @Override
     public InputStream findImage(String imageName) {
         try {
-            return Files.newInputStream(new File(directoryPath + "/" + imageName + ".jpg").toPath());
+            return getFileInputStream(imageName);
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
@@ -54,11 +54,15 @@ public class FilesystemImageProvider implements ImagesDao {
     @Override
     public void stream(String imageName, OutputStream stream) {
         try {
-            InputStream fileStream = Files.newInputStream(new File(directoryPath + "/" + imageName).toPath());
+            InputStream fileStream = getFileInputStream(imageName);
             IOUtils.copy(fileStream, stream);
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
+    }
+
+    private InputStream getFileInputStream(String imageName) throws IOException {
+        return Files.newInputStream(new File(directoryPath + "/" + imageName + ".jpg").toPath());
     }
 
     private Stream<Path> getImageNamesStream() {

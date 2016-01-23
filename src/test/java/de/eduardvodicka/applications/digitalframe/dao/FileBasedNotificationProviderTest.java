@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by evodicka on 02.01.2016.
  */
-public class providerFileBasedNotificationProviderTest {
+public class FileBasedNotificationProviderTest {
 
     private static final String LINE_1 = "Line 1";
     private static final String LINE_2 = "Line 2";
