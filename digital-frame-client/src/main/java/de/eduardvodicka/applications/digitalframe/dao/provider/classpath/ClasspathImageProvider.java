@@ -42,7 +42,7 @@ public class ClasspathImageProvider implements ImagesDao {
     private PathMatchingResourcePatternResolver pathResolver = new PathMatchingResourcePatternResolver();
 
     /**
-     * Instatiates the provider with a given directory path
+     * Instantiates the provider with a given directory path
      * @param directoryPath path to the images directory
      */
     public ClasspathImageProvider(String directoryPath) {

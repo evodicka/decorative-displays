@@ -14,23 +14,31 @@
  * limitations under the License.
  */
 
-package de.eduardvodicka.applications.digitalframe.controller;
-
-import org.springframework.stereotype.Component;
+package de.eduardvodicka.applications.digitalframe.model;
 
 /**
- * Selects a resourcce id on random basis
+ * Representation of a Notification that should be displayed on the UI Screen
  *
  * @author Eduard Vodicka
  */
-@Component("randomSelector")
-public class RandomResourceSelector implements ResourceSelector {
+public class Notification {
 
-    @Override
-    public int selectResourceId(int maxValue) {
-        if(maxValue <= 0) {
-            throw new IllegalArgumentException("Max value must be greater then 0");
-        }
-        return (int) ((Math.random() * 100)) % maxValue;
+    private int id;
+    private String text;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

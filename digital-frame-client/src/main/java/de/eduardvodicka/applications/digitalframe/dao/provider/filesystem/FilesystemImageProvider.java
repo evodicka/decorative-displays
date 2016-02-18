@@ -40,7 +40,7 @@ public class FilesystemImageProvider implements ImagesDao {
     private String directoryPath;
 
     /**
-     * Instatiates the provider with a given directory path
+     * Instantiates the provider with a given directory path
      * @param directoryPath path to the images directory
      */
     public FilesystemImageProvider(String directoryPath) {
