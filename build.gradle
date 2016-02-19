@@ -10,9 +10,9 @@ buildscript {
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath "io.spring.gradle:dependency-management-plugin:0.5.5.RELEASE"
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:1.2"
-    }
+		classpath "io.spring.gradle:dependency-management-plugin:0.5.5.RELEASE"
+		classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:1.2"
+	}
 }
 
 apply plugin: 'idea'
@@ -23,8 +23,8 @@ allprojects {
 	apply plugin: "jacoco"
 
 	group = 'de.eduardvodicka.apps'
-    version = '1.0.0-SNAPSHOT'
-	
+	version = '1.0.0-SNAPSHOT'
+
 	repositories {
 		mavenCentral()
 	}
@@ -37,10 +37,10 @@ subprojects {
 	}
 }
 
-project(':digital-frame-client') {
-	apply plugin: 'spring-boot' 
-    apply plugin: 'io.spring.dependency-management'
-	
+project(':digital-frame') {
+	apply plugin: 'spring-boot'
+	apply plugin: 'io.spring.dependency-management'
+
 	springBoot {
 		executable = true
 	}

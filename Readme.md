@@ -1,4 +1,8 @@
-# Digital Frame
+# Decorative Displays
+
+A set of applications for displays that can be placed in ones flat.
+
+## Digital Frame
 
 This is a Spring Boot application that implements functions of an extended digital frame. It is designed to run on a Raspberry Pi with an attached display. The backend consists of several Spring-MVC controllers that handle resource loading and an AngularJS frontend to display the content.
 
