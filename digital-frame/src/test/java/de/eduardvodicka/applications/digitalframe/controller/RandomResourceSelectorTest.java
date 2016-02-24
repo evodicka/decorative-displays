@@ -2,9 +2,9 @@ package de.eduardvodicka.applications.digitalframe.controller;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.lessThan;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by evodicka on 23.01.2016.
@@ -19,11 +19,10 @@ public class RandomResourceSelectorTest {
     }
 
     @Test
-    public void select() {
+    public void select_valid() {
         int result = underTest.selectResourceId(20);
 
-        assertThat(result, greaterThan(0));
+        assertThat(result, greaterThanOrEqualTo(0));
         assertThat(result, lessThan(21));
     }
-
 }
