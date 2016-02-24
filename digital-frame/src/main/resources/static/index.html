@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Hello AngularJS</title>
+    <title>Digital Frame</title>
     <link rel="stylesheet" href="styles/styles.css" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -19,7 +19,7 @@
     <!--</style>-->
 </head>
 
-<body ng-app="hello" ng-controller="images" ng-style="{ 'background-image': 'url(/images/' + not.id + '/' + not.name + ')', 'background-repeat': 'no-repeat'}">
+<body ng-app="frame" ng-controller="images" ng-style="{ 'background-image': 'url(/images/' + image.id + '/' + image.name + ')', 'background-repeat': 'no-repeat'}">
     <div class="container">
         <div ng-controller="clock" ng-cloak>
             <p class="date">{{CurrentDate | date:'dd.MM.yyyy'}}</p>
@@ -32,6 +32,6 @@
     <script src="js/lib/angular.js"></script>
     <script src="js/lib/angular-animate.js"></script>
     <script src="js/lib/angular-route.js"></script>
-    <script src="js/hello.js"></script>
+    <script src="js/frame-app.js"></script>
     </body>
 </html>
